@@ -65,6 +65,30 @@ Object* LinkedList::get(unsigned index)const{
 	}
 	return curr;
 
-
+}
+Object* LinkedList::first()const{
+	if(head != NULL){
+		return head->data;
+	}
+	return NULL;
+}
+Object* LinkedList::last()const {
+    if (head == NULL)
+        return NULL;
+    curr = head;
+    for (int i=0; i < size; i++)
+        curr = curr->next;
+    return curr->data;
+}
+int LinkedList::indexOf(Object* other)const {
+	curr = head;
+	for (int i = 0; i < size; ++i)
+	{
+		if (curr->data->equals(other))
+		{
+			return i;
+		}
+	}
+	return -1;
 
 }
